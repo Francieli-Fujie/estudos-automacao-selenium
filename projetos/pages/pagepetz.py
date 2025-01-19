@@ -1,17 +1,20 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+ 
 
 class BlogPage:
     def __init__(self, driver, wait):
         self.driver = driver
         self.wait = wait
         self.url = 'https://www.petz.com.br/blog/pets'
+        self.driver.maximize_window()
+
 
     def acessar_blog(self):
         self.driver.get(self.url)
-        self.driver.maximize_window()
-
+        
+        
     def clicar_link_gatos(self):
         button_Gatos = self.wait.until(EC.visibility_of_element_located((By.XPATH, '(//a[@href="https://www.petz.com.br/blog/pets/gatos/"])[1]')))
         button_Gatos.click()
